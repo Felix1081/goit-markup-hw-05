@@ -228,7 +228,7 @@ fieldset {
 .features {
     padding: 120px 0;
 }
-.features-title {
+.visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -506,7 +506,7 @@ fieldset {
     top: 24px;
     right: 24px;
     border-radius: 100%;
-    fill: var(--cornflower);
+    background-color: var(--corndlower);
     stroke-width: 1px;
     stroke: rgba(0, 0, 0, 0.1);
 }
@@ -517,9 +517,8 @@ fieldset {
 .icon-close {
     fill: var(--navy-blue);
 }
-.icon-close:hover,
-.icon-close:focus {
-    fill: var(--white);   
+.backdrop-modal:has(.button-close:hover) .icon-close {
+    fill: var(--white);
 }
 .backdrop-title {
     margin-bottom: 16px;
@@ -542,19 +541,32 @@ fieldset {
     color: var(--light-slate);
     margin-bottom: 4px;
 }
+.backdrop-wrapper {
+    position: relative;
+    margin-bottom: 8px;
+}
+.backdrop-wrapper:has(input:hover) .backdrop-icon,
+.backdrop-wrapper:has(input:focus) .backdrop-icon {
+    fill: var(--iris);
+}
+.backdrop-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: var(--navy-blue);
+}
 .backdrop-input {
     border: 1px solid var(--navy-blue-modal);
     border-radius: 4px;
     width: 100%;
-    margin-bottom: 8px;
+    padding-left: 38px;
+    outline: none;
 }
 .backdrop-input:hover,
 .backdrop-input:focus {
     border: 1px solid var(--iris);
     border-radius: 4px;
-}
-.backdrop-icon {
-    fill: var(--navy-blue);
 }
 .backdrop-comment {
     border: 1px solid var(--navy-blue-modal);
@@ -562,4 +574,41 @@ fieldset {
     width: 100%;
     height: 120px;
     resize: none;
+    outline: none;
+    padding-left: 16px;
+    margin-bottom: 16px;
+}
+.backdrop-comment:placeholder-shown {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--navy-blue-modal);
+}
+.backdrop-checkbox-wrapper label {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.backdrop-checkbox-wrapper input:not(:checked) + .backdrop-checkmark {
+    background-color: var(--cloud);
+}
+.backdrop-checkmark {
+    border-radius: 2px;
+    border: 1px solid var(--navy-blue-modal);
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ocean);
+    fill: var(--cloud);
+}
+.privacy-policy:hover,
+.privacy-policy:focus {
+    line-height: 133%;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: var(--iris);
 }
