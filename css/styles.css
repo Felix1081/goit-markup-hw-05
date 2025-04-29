@@ -701,4 +701,9 @@ input:checked + label .backdrop-checkmark {
 .backdrop-button:focus {
   background-color: var(--ocean);
 }
+.backdrop-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* end overlay */
